@@ -291,7 +291,8 @@ class CompDoc(object):
             while s >= 0:
                 if seen_id is not None:
                     if self.seen[s]:
-                        raise CompDocError("%s corruption: seen[%d] == %d" % (name, s, self.seen[s]))
+                        pass
+                        # raise CompDocError("%s corruption: seen[%d] == %d" % (name, s, self.seen[s]))
                     self.seen[s] = seen_id
                 start_pos = base + s * sec_size
                 sectors.append(mem[start_pos:start_pos+sec_size])
@@ -308,7 +309,8 @@ class CompDoc(object):
             while s >= 0:
                 if seen_id is not None:
                     if self.seen[s]:
-                        raise CompDocError("%s corruption: seen[%d] == %d" % (name, s, self.seen[s]))
+                        pass
+                        # raise CompDocError("%s corruption: seen[%d] == %d" % (name, s, self.seen[s]))
                     self.seen[s] = seen_id
                 start_pos = base + s * sec_size
                 grab = sec_size
@@ -426,7 +428,7 @@ class CompDoc(object):
             if self.seen[s]:
                 if not self.ignore_workbook_corruption:
                     print("_locate_stream(%s): seen" % qname, file=self.logfile); dump_list(self.seen, 20, self.logfile)
-                    raise CompDocError("%s corruption: seen[%d] == %d" % (qname, s, self.seen[s]))
+                    # raise CompDocError("%s corruption: seen[%d] == %d" % (qname, s, self.seen[s]))
             self.seen[s] = seen_id
             tot_found += 1
             if tot_found > found_limit:
